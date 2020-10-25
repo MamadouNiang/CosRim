@@ -1,0 +1,141 @@
+<main>
+
+    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded" [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+        <div class="block w-full overflow-x-auto">
+            <div style="margin-left:08%;">
+                <button (click)="getUsers('administrateur')" *ngIf="isAccountAdmin" class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button">
+                  <i class="fas fa-user-cog"></i> Liste des Administrateurs
+                 </button>
+                <button (click)="getUsers('agent')" *ngIf="isAccountAdmin" class="text-green-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button">
+                    <i class="fas fa-user-shield"></i> Liste des Agents
+                </button>
+                <button (click)="getUsers('professeur')" *ngIf="isAccountAgent || isAccountAdmin" class="text-indigo-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button">
+                  <i class="fas fa-chalkboard-teacher"></i> Liste des professeurs
+                </button>
+                <button (click)="getUsers('eleve')" *ngIf="isAccountProf || isAccountAdmin || isAccountAgent" class="text-orange-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button">
+                    <i class="fas fa-user-graduate"></i> Liste des eleves
+                </button>
+            </div>
+            <!-- Projects table -->
+            <table class="items-center w-full bg-transparent border-collapse">
+                <thead>
+                    <tr>
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">
+                            Nom & Prenom
+                        </th>
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">
+                            Email
+                        </th>
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">
+                            Type User
+                        </th>
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">
+                            Etat User
+                        </th>
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">Options
+                        </th>
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              "></th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of datas">
+                    <tr *ngIf="!item.isedit; else elseBlock">
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <!-- <img src="https://i.ibb.co/jHxRQkN/computer-icons-user-profile-avatar-profile.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..." /> -->
+                            <span class="ml-3 font-bold" [ngClass]="color === 'light' ? 'text-gray-700' : 'text-white'">
+                              {{item.nom_prenom}} </span>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            {{item.email}}
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <i class="fas fa-circle text-orange-500 mr-2"></i> {{item.userType}}
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <div class="flex items-center" *ngIf="item.userAccount == 'true'">
+                                <i class="fas fa-circle text-green-500 mr-2"></i> <span class="mr-2">Actif</span>
+
+                            </div>
+                            <div class="flex items-center" *ngIf="item.userAccount == 'false'">
+                                <i class="fas fa-circle text-red-500 mr-2"></i> <span class="mr-2">Desactivé</span>
+
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <button (click)="editUser(item)" class="bg-orange-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                        <i class="fas fa-pencil-alt"></i>                          </button>
+                            <button (click)="supprimer(item.id)" class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                        <i class="fas fa-user-minus"></i>
+                    </button>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right">
+                        </td>
+
+
+                    </tr>
+                    <ng-template #elseBlock>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <!-- <img src="https://i.ibb.co/jHxRQkN/computer-icons-user-profile-avatar-profile.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..." /> -->
+                            <span class="ml-3 font-bold" [ngClass]="color === 'light' ? 'text-gray-700' : 'text-white'">
+                  <input type="text" [(ngModel)]="item.editnom_prenom">
+</span>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <input type="email" [(ngModel)]="item.editemail">
+
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <select [(ngModel)]="item.edituserType">
+                  <option disabled></option>
+                  <option >administrateur</option>
+                  <option >agent</option>
+                  <option >prof</option>
+                  <option >eleve</option>
+              </select> </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <select [(ngModel)]="item.edituserAccount">
+                  <option ></option>
+                  <option value="true">Activé</option>
+                  <option value="false">Desactivé</option>
+
+              </select>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <button (click)="item.isedit=false" class="bg-indigo-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                            <i class="fas fa-undo-alt"></i>                         </button>
+                            <button (click)="modifierUser(item)" class="bg-green-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                            <i class="fas fa-check-circle"></i>                </button>
+                        </td>
+                    </ng-template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

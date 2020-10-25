@@ -1,0 +1,95 @@
+<div class="container mx-auto px-4 h-full">
+    <div class="flex content-center items-center justify-center h-full">
+        <div class="w-full lg:w-6/12 px-4">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0">
+                <div class="rounded-t mb-0 px-6 py-6">
+                    <div class="text-center mb-3">
+                        <h6 class="text-gray-600 text-sm font-bold">
+                            Se connecter avec
+                        </h6>
+                    </div>
+                    <div class="btn-wrapper text-center">
+                        <button class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+              <img alt="..." class="w-5 mr-1" src="assets/img/github.svg" />
+              Github
+            </button>
+                        <button class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+              <img alt="..." class="w-5 mr-1" src="assets/img/google.svg" />
+              Google
+            </button>
+                    </div>
+                    <hr class="mt-6 border-b-1 border-gray-400" />
+                </div>
+                <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                    <div class="text-gray-500 text-center mb-3 font-bold">
+                        <small>Ou inscrivez-vous avec des informations d'identification</small>
+                    </div>
+                    <form class="form" [formGroup]="register" (ngSubmit)="onSubmit()">
+
+                        <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                            <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                              <i class="fas fa-user"></i>
+                             </span>
+                            <input name="nom_prenom" formControlName="nom_prenom" required class="form-control" placeholder="Nom & Prenom *" type="text" (focus)="focus = true" (blur)="focus = false" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+                            />
+                        </div>
+                        <h6 class="text-red-500 text-xs italic" style="text-align: end;" *ngIf="register.controls['nom_prenom'].invalid && (register.controls['nom_prenom'].dirty || register.controls['nom_prenom'].touched)">
+                            Veillez remplir les champs obligatoires *
+                        </h6>
+
+                        <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                            <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                              <i class="fas fa-envelope-square"></i>
+                        </span>
+                            <input [class.is-invalid]="register.get('email').invalid && register.get('email').touched" formControlName="email" class="form-control" placeholder="Email" type="email" (focus)="focus1 = true" (blur)="focus1 = false" class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10"
+                            />
+                        </div>
+                        <div *ngIf="(email.invalid && email.touched) || email.dirty" class="text-red-500 text-xs italic">
+                            <h6 *ngIf="email.errors?.required" class="text-red-500 text-xs italic" style="text-align: end;">ne peut etre vide</h6>
+                            <h6 *ngIf="email.errors?.pattern" class="text-red-500 text-xs italic" style="text-align: end;">entrer un email valide</h6>
+                        </div>
+
+                        <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                            <span class="z-10 h-full leading-snug font-normal absolute text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-3">
+                              <i class="fas fa-lock"></i>
+                            </span>
+                            <input minlength="8" [class.is-invalid]="register.get('password').invalid && register.get('password').touched" formControlName="password" required class="form-control" placeholder="Mot de passe" type="password" (focus)="focus2 = true" (blur)="focus2 = false"
+                                class="px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pl-10" />
+                        </div>
+                        <div *ngIf="(password.invalid && password.touched) || password.dirty" class="text-red-500 text-xs italic">
+                            <h6 *ngIf="password.errors?.required" class="text-red-500 text-xs italic" style="text-align: end;">ne peut etre vide</h6>
+                            <h6 *ngIf="password.errors?.minlength" class="text-red-500 text-xs italic" style="text-align: end;">entrer au mois 8 carateres</h6>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Type d'utilisateur</label>
+                            <select id="inputState" class="form-control block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" formControlName="userType">
+                              <option disabled> </option>
+                              <option >administrateur</option>
+                              <option >agent</option>
+                              <option >professeur</option>
+                              <option >eleves</option>
+                          </select>
+                        </div>
+
+                        <div class="form-check text-left">
+                            <label class="form-check-label">
+                            <input formControlName="contrat" required class="form-check-input" type="checkbox" />
+                            <span class="form-check-sign"> </span> J'accepte
+                            <a href="javascript:void(0)"> les termes et les conditions </a> .
+                          </label>
+                        </div>
+
+                        <div class="card-footer text-center">
+                            <button class="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" (click)="reset()"><i class="fas fa-eraser"> . </i>Vider</button>
+                            <button class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit" [disabled]="!register.valid"><i class="fas fa-check"> . </i>Valider</button>
+
+                        </div>
+                    </form>
+                    <p class="text-red-500 text-xs italic" style="text-align: center;font-weight: bold;">{{errormessage}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

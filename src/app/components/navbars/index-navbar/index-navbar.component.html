@@ -1,0 +1,68 @@
+<nav class="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-white shadow">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <a [routerLink]="['/']" class="text-gray-900 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase" href="#pablo">
+        JamSalam - COSRIM
+      </a>
+            <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" (click)="setNavbarOpen()">
+        <i class="fas fa-bars"></i>
+      </button>
+        </div>
+        <div class="lg:flex flex-grow items-center" [ngClass]="{ hidden: !navbarOpen, block: navbarOpen }" id="example-navbar-warning">
+            <ul class="flex flex-col lg:flex-row list-none mr-auto">
+                <li class="flex items-center">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr">
+                        <i class="text-gray-500 far fa-file-alt text-lg leading-lg mr-2"></i> Documentation
+                    </a>
+                </li>
+            </ul>
+            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+                <li class="flex items-center">
+                    <app-index-dropdown class="block" *ngIf="isAuth"></app-index-dropdown>
+                </li>
+                <li class="flex items-center">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr" target="_blank">
+                        <i class="text-gray-500 fab fa-facebook text-lg leading-lg"></i>
+                        <span class="lg:hidden inline-block ml-2">Share</span>
+                    </a>
+                </li>
+
+                <li class="flex items-center">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr" target="_blank">
+                        <i class="text-gray-500 fab fa-twitter text-lg leading-lg"></i>
+                        <span class="lg:hidden inline-block ml-2">Tweet</span>
+                    </a>
+                </li>
+
+                <li class="flex items-center">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr" target="_blank">
+                        <i class="text-gray-500 fab fa-github text-lg leading-lg"></i>
+                        <span class="lg:hidden inline-block ml-2">Star</span>
+                    </a>
+                </li>
+
+                <li class="flex items-center" *ngIf="!isAuth">
+                    <button [routerLink]="['/auth/login']" class="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button"
+                        type="button">
+          <i class="fas fa-arrow-alt-circle-down"></i> Se Connecter
+        </button>
+                </li>
+                <li class="flex items-center" *ngIf="isAuth">
+                    <app-compteindex-dropdown class="block"></app-compteindex-dropdown>
+                </li>
+                <li class="flex items-center">
+                    <select (change)="ChangeLang($event.target.value)">
+                    <option value="fr" [selected]="lang=='fr'">Français</option>
+                    <option value="ar" [selected]="lang=='ar'">عربى</option>
+                    <option value="en" [selected]="lang=='en'">English</option>
+                    <option value="es" [selected]="lang=='es'">Spanish</option>
+                    <option value="ff" [selected]="lang=='ff'">Pular</option>
+                    <option value="wo" [selected]="lang=='wo'">Wolof</option>
+                    <option value="bm" [selected]="lang=='bm'">Bambara</option>
+                  </select>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

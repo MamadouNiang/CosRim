@@ -1,0 +1,55 @@
+<a class="lg:text-gray lg:hover:text-gray-300 text-white-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="#pablo" (click)="toggleDropdown($event)" #btnDropdownRef>
+  Compte
+ </a>
+<div class="bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" [ngClass]="dropdownPopoverShow ? 'block' : 'hidden'" #popoverDropdownRef>
+    <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500">
+       disposition de l'administrateur
+     </span>
+
+    <a [routerLink]="['/admin/dashboard']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+       Dashboard
+     </a>
+    <a [routerLink]="['/profile']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+      Profile
+    </a>
+    <a [routerLink]="['/landing']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+      NEWS
+           </a>
+    <!-- <a [routerLink]="['/admin/settings']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+       Réglages
+     </a>
+    <a [routerLink]="['/admin/tables']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+       Tables
+     </a>
+    <a [routerLink]="['/admin/maps']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+       Maps
+     </a> -->
+    <div class="h-0 mx-4 my-2 border border-solid border-gray-200"></div>
+    <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500">
+        Gestion des utulisateurs
+      </span>
+    <a [routerLink]="['users/agents']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+        Listes
+       </a>
+    <!-- <a [routerLink]="['/profile']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+        les agents
+       </a>
+    <a [routerLink]="['/profile']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+       les professeurs
+       </a>
+    <a [routerLink]="['/profile']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+         les eleves
+       </a>
+    <a [routerLink]="['/landing']" class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
+        Chargement
+            </a> -->
+
+    <div class="h-0 mx-4 my-2 border border-solid border-gray-200"></div>
+    <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-500">
+       Disposition d'authentification
+     </span>
+    <button (click)="onSignOut()" class="bg-red-600 text-white active:bg-red-700 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150" type="button">
+         <i class="fas fa-sign-out-alt"></i>Deconnexion
+           </button>
+
+</div>
