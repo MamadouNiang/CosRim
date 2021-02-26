@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   createNewUser(email: string, password: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   signInUser(email: string, password: string) {
-    return new Promise((resole, reject) => {
+    return new Promise<void>((resole, reject) => {
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)

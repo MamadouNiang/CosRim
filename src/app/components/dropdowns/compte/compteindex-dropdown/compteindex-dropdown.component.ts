@@ -41,6 +41,7 @@ export class CompteindexDropdownComponent implements OnInit {
 
   onSignOut() {
     this.authService.signOutUser();
+    window.location.reload();
   }
   onSignOutA() {
     this.authService.signOutAuthAccount();

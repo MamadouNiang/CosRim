@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import * as firebase from 'firebase';
+import { AuthService } from "src/app/services/auth.service";
 import { UserCrudService } from 'src/app/services/user-crud.service';
 
 @Component({
@@ -11,7 +13,15 @@ export class AuthNavbarComponent implements OnInit {
   isAccountAdmin: boolean;
   navbarOpen = false;
 
-  constructor(public userService: UserCrudService) {}
+  constructor(public userService: UserCrudService, private authService: AuthService,public route:Router) {}
+  onSignOut() {
+    if(confirm("êtes-vous sûr de vouloir vous déconnecter.\n Taper: \n        - Ok pour confirmer et continuer \n        - Annuler pour fermer ")){
+      this.authService.signOutUser();
+    }else{
+
+    }
+
+  }
 
   ngOnInit(): void {
 
@@ -50,5 +60,8 @@ export class AuthNavbarComponent implements OnInit {
 
   setNavbarOpen() {
     this.navbarOpen = !this.navbarOpen;
+  }
+  users() {
+    this.route.navigateByUrl("/users/agents");
   }
 }

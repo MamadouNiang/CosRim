@@ -11,31 +11,64 @@
         <div class="lg:flex flex-grow items-center" [ngClass]="{ hidden: !navbarOpen, block: navbarOpen }" id="example-navbar-warning">
             <ul class="flex flex-col lg:flex-row list-none mr-auto">
                 <li class="flex items-center">
-                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr">
+                    <!-- <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.facebook.com/JamSalam-105580808085458">
                         <i class="text-gray-500 far fa-file-alt text-lg leading-lg mr-2"></i> Documentation
-                    </a>
+                    </a> -->
                 </li>
             </ul>
             <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-                <li class="flex items-center">
+
+                <!-- <li class="flex items-center">
                     <app-index-dropdown class="block" *ngIf="isAuth"></app-index-dropdown>
-                </li>
+                </li> -->
+
                 <li class="flex items-center">
-                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr" target="_blank">
+                    <a (click)="toCarousel()" class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+                        Accueil
+                    </a>
+                </li>
+
+                <li class="flex items-center">
+                    <a (click)="toFormations()" class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+                      Formations
+                  </a>
+                </li>
+
+                <li class="flex items-center">
+                    <a (click)="toGallerie()" class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+                    Gallerie
+                </a>
+                </li>
+
+
+                <li class="flex items-center">
+                    <a (click)="toEquipe()" class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+                      Nos Partenaires
+                  </a>
+                </li>
+
+                <li class="flex items-center">
+                    <a (click)="toContact()" class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+                    Contact
+                </a>
+                </li>
+
+                <li class="flex items-center">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.facebook.com/JamSalam-105580808085458" target="_blank">
                         <i class="text-gray-500 fab fa-facebook text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">Share</span>
                     </a>
                 </li>
 
                 <li class="flex items-center">
-                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr" target="_blank">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.facebook.com/JamSalam-105580808085458" target="_blank">
                         <i class="text-gray-500 fab fa-twitter text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">Tweet</span>
                     </a>
                 </li>
 
                 <li class="flex items-center">
-                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.instagram.com/niang_mamadou_/?hl=fr" target="_blank">
+                    <a class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold" href="https://www.facebook.com/JamSalam-105580808085458" target="_blank">
                         <i class="text-gray-500 fab fa-github text-lg leading-lg"></i>
                         <span class="lg:hidden inline-block ml-2">Star</span>
                     </a>
@@ -47,18 +80,23 @@
           <i class="fas fa-arrow-alt-circle-down"></i> Se Connecter
         </button>
                 </li>
-                <li class="flex items-center" *ngIf="isAuth">
+                <!-- <li class="flex items-center" *ngIf="isAuth">
                     <app-compteindex-dropdown class="block"></app-compteindex-dropdown>
+                </li> -->
+                <li class="flex items-center">
+                    <a *ngIf="isAuth" (click)="toAteliers()" class="hover:text-gray-600 text-gray-800 px-3 py-2 flex items-center text-xs uppercase font-bold">
+                        <strong>Dashboard</strong>
+                    </a>
                 </li>
                 <li class="flex items-center">
                     <select (change)="ChangeLang($event.target.value)">
                     <option value="fr" [selected]="lang=='fr'">Français</option>
                     <option value="ar" [selected]="lang=='ar'">عربى</option>
                     <option value="en" [selected]="lang=='en'">English</option>
-                    <option value="es" [selected]="lang=='es'">Spanish</option>
+                    <!-- <option value="es" [selected]="lang=='es'">Spanish</option>
                     <option value="ff" [selected]="lang=='ff'">Pular</option>
                     <option value="wo" [selected]="lang=='wo'">Wolof</option>
-                    <option value="bm" [selected]="lang=='bm'">Bambara</option>
+                    <option value="bm" [selected]="lang=='bm'">Bambara</option> -->
                   </select>
 
                 </li>

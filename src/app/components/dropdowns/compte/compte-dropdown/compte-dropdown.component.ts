@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { createPopper } from "@popperjs/core";
 import { AuthService } from 'src/app/services/auth.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-compte-dropdown',
@@ -12,9 +13,17 @@ export class CompteDropdownComponent implements OnInit {
     ) { }
 
   dropdownPopoverShow = false;
+  navbarOpen = false;
+  isAuth: boolean;
+
+
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })
   popoverDropdownRef: ElementRef;
+
+  setNavbarOpen() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
   toggleDropdown(event) {
     event.preventDefault();
@@ -37,10 +46,23 @@ export class CompteDropdownComponent implements OnInit {
 
 
   ngOnInit(): void {
+    firebase.auth().onAuthStateChanged((useri) => {
+      if (useri) {
+        this.isAuth = true;
+      } else {
+        this.isAuth = false;
+      }
+    });
+
   }
 
   onSignOut() {
-    this.authService.signOutUser();
+    if(confirm("êtes-vous sûr de vouloir vous déconnecter.\n Taper: \n        - Ok pour confirmer et continuer \n        - Annuler pour fermer ")){
+      this.authService.signOutUser();
+    }else{
+
+    }
+
   }
   onSignOutA() {
     this.authService.signOutAuthAccount();

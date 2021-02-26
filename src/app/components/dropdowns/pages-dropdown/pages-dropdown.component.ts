@@ -20,6 +20,9 @@ export class PagesDropdownComponent implements OnInit {
       this.createPoppper();
     }
   }
+  maj() {
+    alert("en cours de traitement ... ");
+  }
   createPoppper() {
     createPopper(
       this.btnDropdownRef.nativeElement,

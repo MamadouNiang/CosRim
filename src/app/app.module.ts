@@ -63,7 +63,13 @@ import { CompteindexDropdownComponent } from './components/dropdowns/compte/comp
 import { UsersAComponent } from './views/users/agents/users.component';
 import { AthGuardService } from './services/ath-guard.service';
 import { UsersComponent } from './layouts/users/users.component';
-
+import { GallerieComponent } from './views/index/index/gallerie/gallerie.component';
+import { EchangesComponent } from './views/echanges/echanges.component';
+import { ChargementComponent } from './views/chargement/chargement.component';
+import { BibloComponent } from './views/biblo/biblo.component';
+import { CardBibloComponent } from './components/cards/card-biblo/card-biblo.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -106,6 +112,12 @@ import { UsersComponent } from './layouts/users/users.component';
     CompteindexDropdownComponent,
     UsersAComponent,
     UsersComponent,
+    GallerieComponent,
+    EchangesComponent,
+    ChargementComponent,
+    BibloComponent,
+    CardBibloComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,6 +129,7 @@ import { UsersComponent } from './layouts/users/users.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    Ng2SearchPipeModule,
   ],
   providers: [AuthService,UserCrudService,AthGuardService],
   bootstrap: [AppComponent],

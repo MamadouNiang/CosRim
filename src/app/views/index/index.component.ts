@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { IndexServiceService } from 'src/app/services/index-service.service';
 import { UserCrudService } from 'src/app/services/user-crud.service';
@@ -7,23 +8,25 @@ import { UserCrudService } from 'src/app/services/user-crud.service';
 @Component({
   selector: "app-index",
   templateUrl: "./index.component.html",
+  styleUrls: ["./index.component.scss"],
 })
 export class IndexComponent implements OnInit {
+  showModal = false;
   annonce: any;
   nom_section: string;
   valeur: string;
   isAuth: boolean;
   isAccountAdmin: boolean;
+  posts=[];
 
   constructor(
     private http: HttpClient,
     private indexcrudservice: IndexServiceService,
-    public userService: UserCrudService) {}
-
-
-
+    public userService: UserCrudService,    private router: Router,
+    ) { }
 
   editsection(section) {
+    console.log("ici");
     section.isedit = true;
     section.editnom_section = section.nom_section;
     section.editvaleur = section.valeur;
@@ -86,7 +89,6 @@ export class IndexComponent implements OnInit {
           valeur:e.payload.doc.data()["valeur"]
         };
       });
-      console.log(this.annonce);
     });
 
     const lang = localStorage.getItem('lang') || 'fr';
@@ -94,5 +96,17 @@ export class IndexComponent implements OnInit {
       'Accept-Language':lang
     });
 
+    // console.log("=--------",this.http.get("https://firestore.googleapis.com/v1/projects/jamsalam-3aa13/databases/(default)/documents/index/", { headers: headers }));
+  }
+
+  seeAteliers(boo:boolean) {
+    alert("ici = "+boo);
+  }
+  myFunction() {
+    if(confirm("Veuillez vous inscrire pour acceder aux formations.\n Taper: \n        - Ok pour s'inscrire et continuer \n        - Annuler pour fermer ")){
+      this.router.navigateByUrl("/auth/register");
+    }else{
+      window.scrollTo(0,620);
+    }
   }
   }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { UserCrudService } from 'src/app/services/user-crud.service';
 
@@ -12,7 +13,9 @@ export class IndexNavbarComponent implements OnInit {
   isAccountAdmin: boolean;
   navbarOpen = false;
   lang;
-  constructor(public userService: UserCrudService) {}
+  echange = false;
+
+  constructor(public userService: UserCrudService , public route:Router) { }
 
   ngOnInit(): void {
 
@@ -51,7 +54,9 @@ export class IndexNavbarComponent implements OnInit {
     // multi-langue
     this.lang = localStorage.getItem('lang') || 'fr';
   }
-
+  toAteliers() {
+    this.route.navigateByUrl('/echanges');
+  }
   setNavbarOpen() {
     this.navbarOpen = !this.navbarOpen;
   }
@@ -62,4 +67,32 @@ export class IndexNavbarComponent implements OnInit {
   }
 
 
+  //scrool
+  toContact() {
+    document.getElementById('contact').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+  }
+
+  toEquipe() {
+    document.getElementById('equipe').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+  }
+
+  toGallerie() {
+    window.scrollTo(0,1300);
+    // document.getElementById('gallerie').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+  }
+
+  toEchanges() {
+    this.echange = true;
+    this.route.navigateByUrl("/echanges");
+  }
+
+  toFormations() {
+    document.getElementById('formations').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+    window.scrollTo(0,620);
+  }
+
+  toCarousel() {
+    document.getElementById('carousel').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+  }
 }
+

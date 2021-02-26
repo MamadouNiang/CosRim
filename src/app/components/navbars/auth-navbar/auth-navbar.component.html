@@ -8,47 +8,89 @@
         <i class="text-white fas fa-bars"></i>
       </button>
         </div>
-        <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none" [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }" id="example-navbar-warning">
+        <div class="lg:flex flex-grow items-center bg-gray-700 lg:bg-transparent lg:shadow-none" [ngClass]="{ hidden: !navbarOpen, 'block rounded shadow-lg': navbarOpen }" id="example-navbar-warning">
             <ul class="flex flex-col lg:flex-row list-none mr-auto">
                 <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/webapp?ref=twa-auth-navbar">
+                    <!-- <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/webapp?ref=twa-auth-navbar">
                         <i class="lg:text-gray-300 text-gray-500 far fa-file-alt text-lg leading-lg mr-2"></i> Documentation
-                    </a>
+                    </a> -->
                 </li>
             </ul>
             <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-                <li class="flex items-center">
+                <li class="nav-item">
+                    <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a [routerLink]="['/admin/dashboard']" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                      dashboard
+                  </a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a [routerLink]="['/profile']" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                        <i class="fas fa-cog text-lg leading-lg text-white opacity-75"> </i> profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/landing']" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                        <i class="fas fa-graduation-cap text-lg leading-lg text-white opacity-75"> </i> Ateliers
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/echanges']" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                        <i class="fas fa-project-diagram text-lg leading-lg text-white opacity-75"> </i> echanges
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/users/agents']" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                        <i class="fas fa-user text-lg leading-lg text-white opacity-75"> </i> Users
+                    </a>
+                </li> -->
+                <!-- <li class="flex items-center">
                     <app-pages-dropdown class="block" *ngIf="isAuth"></app-pages-dropdown>
                 </li>
                 <li class="flex items-center">
                     <app-compte-dropdown class="block" *ngIf="isAuth"></app-compte-dropdown>
                 </li>
-                <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Ftailwind-webapp-angular%2F" target="_blank">
-                        <i class="lg:text-gray-300 text-gray-500 fab fa-facebook text-lg leading-lg"></i>
-                        <span class="lg:hidden inline-block ml-2">Share</span>
-                    </a>
+                <li class="nav-item">
+                    <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                  Profile
+                </a>
+                </li>
+                <li class="nav-item">
+                    <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+                  Settings
+                </a>
+                </li> -->
+                <!-- <li class="flex items-center">
+                    <a href="#" class="text-base font-bold text-white-500 hover:text-gray-900">
+                    Pricing
+                  </a>
+
                 </li>
 
                 <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Ftailwind-webapp-angular%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20Angular%20UI%20Kit%20and%20Admin.%20Let%20Tailwind%20WebApp%20Angular%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level."
-                        target="_blank">
-                        <i class="lg:text-gray-300 text-gray-500 fab fa-twitter text-lg leading-lg"></i>
-                        <span class="lg:hidden inline-block ml-2">Tweet</span>
-                    </a>
-                </li>
+                    <a href="#" class="text-base font-bold text-white-500 hover:text-gray-900">
+                    Docs
+                  </a>
+                </li> -->
 
-                <li class="flex items-center">
-                    <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://github.com/creativetimofficial/tailwind-webapp-angular?ref=twa-auth-navbar" target="_blank">
-                        <i class="lg:text-gray-300 text-gray-500 fab fa-github text-lg leading-lg"></i>
-                        <span class="lg:hidden inline-block ml-2">Star</span>
-                    </a>
-                </li>
 
                 <li class="flex items-center" *ngIf="!isAuth">
                     <button [routerLink]="['login']" class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150" type="button">
             <i class="fas fa-arrow-alt-circle-down"></i> Se Connecter
           </button>
+                </li>
+                <li class="flex items-center" *ngIf="isAuth && isAccountAdmin">
+                    <button (click)="users()" class="bg-green-500 text-white active:bg-green-500 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150" type="button">
+                  <i class="fas fa-user-cog"></i>Gestions des Utilisateurs
+                    </button>
+                </li>
+                <li class="flex items-center" *ngIf="isAuth">
+                    <button (click)="onSignOut()" class="bg-red-600 text-white active:bg-red-700 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150" type="button">
+                    <i class="fas fa-sign-out-alt"></i>Deconnexion
+                      </button>
                 </li>
 
             </ul>

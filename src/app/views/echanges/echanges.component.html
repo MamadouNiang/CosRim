@@ -1,0 +1,214 @@
+<app-auth-navbar></app-auth-navbar>
+<main>
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
+        background-image: url('https://i.ibb.co/864Bz8v/1.jpg');">
+            <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+            <div class="items-center flex flex-wrap">
+                <div class="w-full lg:w-11/12 px-4 ml-auto mr-auto text-center">
+                    <div class="pr-8">
+                        <div class="grid gap-4 grid-cols-2 text-white font-semibold text-center">
+                            <div></div>
+                            <!-- <div>2</div>
+                        <div>3</div>
+                        <div>4</div> -->
+                        </div>
+                        <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-left">
+                            <div class="relative" style="margin-top: 25%;">
+                                <a [routerLink]="['/profile']">
+                                    <img *ngIf="infoUser.photoURL!=null" style="margin-left: 0%;max-width: 60px;" alt="..." src={{infoUser.photoURL}} class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-100-px" />
+                                    <img *ngIf="infoUser.photoURL==null" style="margin-left: 0%;max-width: 60px;" alt="..." src="https://i.ibb.co/mSJvtm8/computer-icons-user-profile-avatar-profile.jpg" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-100-px"
+                                    />
+                                </a>
+
+
+                            </div>
+                            <h1 *ngIf="infoUser.displayName!=null" class="text-white font-semibold text-center" style="margin-left: 70px;margin-top: 7%">
+                                {{infoUser.displayName}} : {{userT}}
+                            </h1>
+                            <h1 *ngIf="infoUser.displayName==null" class="text-white font-semibold text-center" style="margin-left: 70px;margin-top: 7%">
+                                {{user}} : {{userT}}
+                            </h1>
+                        </div>
+                        <section class="block relative z-1 " id="gallerie">
+                            <div class="container mx-auto">
+                                <div class="justify-center flex flex-wrap">
+                                    <div class="text-white bg-transparent w-full lg:w-12/12 px-4 -mt-24" style="    margin-top: 1rem;">
+                                        <div class="flex flex-wrap">
+                                            <div class="w-full lg:w-4/12 px-4">
+                                                <h5 class=" text-xl font-semibold pb-4 text-center">
+                                                    <i class="fas fa-graduation-cap text-lg leading-lg text-white opacity-75"> </i> Ateliers et Formations
+                                                </h5>
+                                                <a (click)="toFormations()">
+                                                    <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
+                                                        <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/sWq1yJY/slide-formation.png" />
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="w-full lg:w-4/12 px-4">
+                                                <h5 class="text-xl font-semibold pb-4 text-center">
+                                                    <i class="fas fa-book text-lg leading-lg text-white opacity-75"> </i> Bibliothèque
+                                                </h5>
+                                                <a (click)="toBib()">
+                                                    <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
+                                                        <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/HpSPRpm/480-4808620-mq-book-books-shelf-caterpillar-reading-a-book.png" />
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="w-full lg:w-4/12 px-4">
+                                                <h5 class="text-xl font-semibold pb-4 text-center">
+                                                    <i class="fas fa-project-diagram text-lg leading-lg text-white opacity-75"> </i> Echanges
+                                                </h5>
+                                                <a (click)="toEchanges()">
+                                                    <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
+                                                        <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/z8KNt9r/arton102989.jpg" />
+                                                    </div>
+                                                </a>
+
+                                            </div>
+                                            <div class="w-full lg:w-4/12 px-4">
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <h1 class="text-white font-semibold text-4xl" id="echanges">
+                            Organiser des echanges créatifs
+                        </h1>
+                        <p class="mt-4 text-lg text-gray-300">
+                            L’élaboration d’un echange démarre toujours par une réflexion sur la création. Certaines questions sont plus importantes que d’autres mais le souci du détail permet de s’assurer que l'echange sera vraiment adapté. </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0);">
+            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+        <polygon
+          class="text-gray-300 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+        </div>
+    </div>
+
+
+    <section class="pb-20 bg-gray-300 -mt-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                        <div class="px-4 py-5 flex-auto">
+                            <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <h6 class="text-xl font-semibold">Instagram</h6>
+                            <p class="mt-2 mb-4 text-gray-600">
+                                Rencontres scolaires transfrontalières </p>
+                            <a href="https://www.instagram.com/niang_mamadou_/?hl=fr"> <button class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                                    <i class="fab fa-instagram"></i> . Visiter Nos Story
+                                  </button></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-4/12 px-4 text-center">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                        <div class="px-4 py-5 flex-auto">
+                            <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <h6 class="text-xl font-semibold">Facebook</h6>
+                            <p class="mt-2 mb-4 text-gray-600">
+                                Programme pilote de coopération scolaire/extrascolaire
+                            </p>
+                            <a href="https://www.facebook.com/JamSalam-105580808085458">
+                                <button class="bg-blue-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                            <i class="fab fa-facebook-f"></i> . Rejoindre Facebook
+                          </button></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 w-full md:w-4/12 px-4 text-center">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                        <div class="px-4 py-5 flex-auto">
+                            <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h6 class="text-xl font-semibold">Whatsapp</h6>
+                            <p class="mt-2 mb-4 text-gray-600">
+                                Rencontres en tiers-lieu dans les rencontres scolaires </p>
+                            <button class="bg-green-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                                  <i class="fab fa-whatsapp"></i> . <a target="_blank" href="https://chat.whatsapp.com/Ecogf5KgOENAY6KGlJiY78">Groupe Whatsapp</a>
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center mt-32">
+                <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+                </div>
+
+                <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+                    <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-red-600">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative block py-24 lg:pt-0 bg-gray-900 ">
+        <div class="container mx-auto px-4 ">
+            <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48 " style=" margin-top: -9rem;">
+                <div class="w-full lg:w-6/12 px-4 ">
+                    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 ">
+                        <div class="flex-auto p-5 lg:p-10 ">
+                            <h4 class="text-2xl font-semibold ">
+                                Voulez-vous nous ecrire ?
+                            </h4>
+                            <p class="leading-relaxed mt-1 mb-4 text-gray-600 ">
+                                Remplissez ce formulaire et nous vous répondrons dans les 24 heures.
+                            </p>
+                            <div class="relative w-full mb-3 mt-8 ">
+                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2 " htmlFor="full-name ">
+                 Nom et Prenom
+                </label>
+                                <input type="text " class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150 " placeholder="Full Name " />
+                            </div>
+
+                            <div class="relative w-full mb-3 ">
+                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2 " htmlFor="email ">
+                  Email
+                </label>
+                                <input type="email " class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150 " placeholder="Email " />
+                            </div>
+
+                            <div class="relative w-full mb-3 ">
+                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2 " htmlFor="message ">
+                  Message
+                </label>
+                                <textarea rows="4 " cols="80 " class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full " placeholder="Type a message... "></textarea>
+                            </div>
+                            <div class="text-center mt-6 ">
+                                <button (click)="sms()" class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " type="button ">
+                  Envoyer
+                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<app-footer id="contact"></app-footer>

@@ -2,13 +2,13 @@ export const environment = {
   production: true,
 
   firebase: {
-    apiKey: "AIzaSyDxq4jaNqAIEFelD8bV53Uj139lLWqlV9c",
-    authDomain: "koubeba-cf9c4.firebaseapp.com",
-    databaseURL: "https://koubeba-cf9c4.firebaseio.com",
-    projectId: "koubeba-cf9c4",
-    storageBucket: "koubeba-cf9c4.appspot.com",
-    messagingSenderId: "994162397066",
-    appId: "1:994162397066:web:232c0664caf604566cc273",
-    measurementId: "G-T0DY5WEQW3",
+    apiKey: "AIzaSyDxw7H7exMk_Mwr2AaI5ibhXYJz4PfP6II",
+    authDomain: "jamsalam-3aa13.firebaseapp.com",
+    databaseURL: "https://jamsalam-3aa13.firebaseio.com",
+    projectId: "jamsalam-3aa13",
+    storageBucket: "jamsalam-3aa13.appspot.com",
+    messagingSenderId: "514080963111",
+    appId: "1:514080963111:web:3818094fbb45362de52c02",
+    measurementId: "G-HCRYNYCD4P"
   },
 };

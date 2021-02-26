@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "jamsalam-3aa13"
+  },
+  "targets": {
+    "jamsalam-3aa13": {
+      "hosting": {
+        "tailwind-webapp-angular": [
+          "jamsalam-3aa13"
+        ]
+      }
+    }
+  }
+}

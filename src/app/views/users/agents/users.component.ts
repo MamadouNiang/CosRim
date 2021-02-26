@@ -11,13 +11,15 @@ import { UserCrudService } from 'src/app/services/user-crud.service';
 })
 export class UsersAComponent implements OnInit {
   datas = [];
-
+  searchText;
   user: any;
   nom_renom: string;
   email: string;
   userType: string;
-  userAccount: string;
+  userAccount: boolean;
   contrat: boolean;
+  zone: string;
+  etablissement: string;
   Item: any;
 
   errormessage: any;
@@ -68,16 +70,16 @@ firebase.auth().onAuthStateChanged((useri) => {
           if (user[i].userType == "administrateur") {
             this.isAccountAdmin = true;
           } else
-            if (user[i].userType == "agent") {
+            if (user[i].userType == "formateur") {
             this.isAccountAgent = true;
             this.isAccountAdmin = false;
             }else
-           if (user[i].userType == "prof") {
+           if (user[i].userType == "tuteur") {
              this.isAccountProf = true;
              this.isAccountAgent = false;
              this.isAccountAdmin = false;
            } else
-             if (user[i].userType == "eleve") {
+             if (user[i].userType == "visiteur") {
              this.isAccountEleve = true;
              this.isAccountProf = false;
             this.isAccountAgent = false;
@@ -109,6 +111,8 @@ firebase.auth().onAuthStateChanged((useri) => {
           userType: e.payload.doc.data()["userType"],
           userAccount: e.payload.doc.data()["userAccount"],
           contrat: e.payload.doc.data()["contrat"],
+          zone: e.payload.doc.data()["zone"],
+          etablissement: e.payload.doc.data()["etablissement"],
         };
       });
       for (let i = 0; i < this.user.length; i++) {
@@ -125,23 +129,41 @@ firebase.auth().onAuthStateChanged((useri) => {
     user.editnom_prenom = user.nom_prenom;
     user.editemail = user.email;
     user.edituserType = user.userType;
-    user.edituserAccount = user.userAccount;
+    user.edituserAccount = Boolean(user.userAccount);
     user.editcontrat = user.contrat;
+    user.zone = user.zone;
+    user.etablissement = user.etablissement;
 
   }
   modifierUser(user) {
-    let data = {};
-    data["nom_prenom"] = user.editnom_prenom;
-    data["email"] = user.editemail;
-    data["userType"] = user.edituserType;
-    data["userAccount"] = user.edituserAccount;
-    data["contrat"] = user.editcontrat;
+    if(confirm("êtes-vous sûr de vouloir Modifier l'utilisateur.\n Taper: \n        - Ok pour confirmer et continuer \n        - Annuler pour fermer ")){
+      let data = {};
+      data["nom_prenom"] = user.editnom_prenom;
+      data["email"] = user.editemail;
+      data["userType"] = user.edituserType;
+      if (user.edituserAccount == 'true') {
+        user.edituserAccount = true;
+      } else if (user.edituserAccount == 'false') {
+        user.edituserAccount = false
+     }
+      data["userAccount"] = user.edituserAccount;
+      data["contrat"] = user.editcontrat;
+      data["zone"] = user.zone;
+      data["etablissement"] = user.etablissement;
 
-    this.userService.updateUser(user.id, data);
-    user.isedit = false;
+      this.userService.updateUser(user.id, data);
+      user.isedit = false;
+    }else{
+
+    }
+
   }
   supprimer(id) {
-    this.userService.deleteUser(id);
+    if(confirm("êtes-vous sûr de vouloir vous Supprimer Definitivement l'utilisateur.\n Taper: \n        - Ok pour confirmer et continuer \n        - Annuler pour fermer ")){
+      this.userService.deleteUser(id);
+    }else{
+
+    }
   }
   viewUser(item) {}
 }

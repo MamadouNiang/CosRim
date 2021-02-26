@@ -26,6 +26,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './layouts/admin/admin.component';
 import { UsersComponent } from './layouts/users/users.component';
+import { EchangesComponent } from './views/echanges/echanges.component';
+import { ChargementComponent } from './views/chargement/chargement.component';
+import { BibloComponent } from "./views/biblo/biblo.component";
+import { GalleryComponent } from "./gallery/gallery.component";
 
 
 
@@ -66,6 +70,11 @@ const routes: Routes = [
   // no layout views
   { path: "profile",canActivate: [AthGuardService], component: ProfileComponent,},
   { path: "landing", canActivate: [AthGuardService], component: LandingComponent, },
+  { path: "echanges", canActivate: [AthGuardService], component: EchangesComponent, },
+  { path: "biblo", canActivate: [AthGuardService], component: BibloComponent, },
+  { path: "gallery",  component: GalleryComponent, },
+
+  { path: "chargement", component: ChargementComponent, },
   { path: "index", component: IndexComponent },
   { path: "", component: IndexComponent },
   { path: "**", redirectTo: "", pathMatch: "full" },

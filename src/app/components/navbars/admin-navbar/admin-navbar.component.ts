@@ -5,6 +5,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./admin-navbar.component.html",
 })
 export class AdminNavbarComponent implements OnInit {
+  searchText;
   constructor() {}
 
   ngOnInit(): void {}
