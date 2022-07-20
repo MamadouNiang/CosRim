@@ -4,7 +4,7 @@
     <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
 
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
-        background-image: url('https://i.ibb.co/wh7yTTF/3.jpg');">
+        background-image: url('https://i.ibb.co/6Hx9Smj/IMG-9.jpg');">
             <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
         </div>
         <div class="container relative mx-auto">
@@ -27,11 +27,11 @@
 
 
                             </div>
-                            <h1 *ngIf="infoUser.displayName!=null" class="ecriture text-white font-semibold text-center" style="margin-left: 70px;">
-                                {{infoUser.displayName}} : {{userT}}
+                            <h1 *ngIf="infoUser ===true && infoUser.displayName!=null " class="ecriture text-white font-semibold text-center" style="margin-left: 70px;">
+                              {{infoUser}} -- {{infoUser.displayName}} : {{userT}}
                             </h1>
-                            <h1 *ngIf="infoUser.displayName==null" class="ecriture text-white font-semibold text-center" style="margin-left: 70px;">
-                                {{user}} : {{userT}}
+                            <h1 *ngIf="infoUser ===true && infoUser.displayName==null " class="ecriture text-white font-semibold text-center" style="margin-left: 70px;">
+                              {{infoUser}} ==== {{user}} : {{userT}}
                             </h1>
                             <button [routerLink]="['/index']" class="retour  bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
                               <i class="fas fa-undo"></i> Retour

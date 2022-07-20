@@ -1,21 +1,34 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {Component, ElementRef, OnInit, ViewChild} from "@angular/core";
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
+import {createPopper} from '@popperjs/core/lib/popper-lite';
 import * as firebase from 'firebase';
-import { UserCrudService } from 'src/app/services/user-crud.service';
+import {UserCrudService} from 'src/app/services/user-crud.service';
 
 @Component({
   selector: "app-index-navbar",
   templateUrl: "./index-navbar.component.html",
 })
 export class IndexNavbarComponent implements OnInit {
+
+  dropdownPopoverShow = false;
+  @ViewChild('btnDropdownRef', {static: false}) btnDropdownRef: ElementRef;
+  popper = document.createElement("div");
+
   isAuth: boolean;
   isAccountAdmin: boolean;
   navbarOpen = false;
   lang;
   echange = false;
 
-  constructor(public userService: UserCrudService , public route:Router) { }
+  constructor(public translate: TranslateService, public userService: UserCrudService, public route: Router) {
+    if (localStorage.getItem("langue") === null) {
+      translate.setDefaultLang('fr');
+    } else {
+      translate.setDefaultLang(localStorage.getItem("langue"));
+    }
+  }
 
   ngOnInit(): void {
 
@@ -45,7 +58,7 @@ export class IndexNavbarComponent implements OnInit {
                 this.isAccountAdmin = false;
               }
             }
-        }
+          }
 
         }
       });
@@ -53,10 +66,37 @@ export class IndexNavbarComponent implements OnInit {
 
     // multi-langue
     this.lang = localStorage.getItem('lang') || 'fr';
+
+    //le ng select pour la liste deroulante
+    // this.popper.innerHTML = ``;
   }
+
+  toggleDropdown($event: MouseEvent) {
+    if (this.dropdownPopoverShow) {
+      this.dropdownPopoverShow = false;
+      this.destroyPopper();
+    } else {
+      this.dropdownPopoverShow = true;
+      this.createPoppper();
+    }
+  }
+
+  destroyPopper() {
+    this.popper.parentNode.removeChild(this.popper);
+  }
+
+  createPoppper() {
+    createPopper(this.btnDropdownRef.nativeElement, this.popper, {
+      placement: "bottom-start"
+    });
+    this.btnDropdownRef.nativeElement.parentNode.insertBefore(this.popper, this.btnDropdownRef.nativeElement.nextSibling);
+
+  }
+
   toAteliers() {
     this.route.navigateByUrl('/echanges');
   }
+
   setNavbarOpen() {
     this.navbarOpen = !this.navbarOpen;
   }
@@ -69,15 +109,15 @@ export class IndexNavbarComponent implements OnInit {
 
   //scrool
   toContact() {
-    document.getElementById('contact').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+    document.getElementById('contact').scrollIntoView({behavior: "smooth", block: 'start', inline: 'start'});
   }
 
   toEquipe() {
-    document.getElementById('equipe').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+    document.getElementById('equipe').scrollIntoView({behavior: "smooth", block: 'start', inline: 'start'});
   }
 
   toGallerie() {
-    window.scrollTo(0,1300);
+    window.scrollTo(0, 2600);
     // document.getElementById('gallerie').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
   }
 
@@ -87,12 +127,24 @@ export class IndexNavbarComponent implements OnInit {
   }
 
   toFormations() {
-    document.getElementById('formations').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
-    window.scrollTo(0,620);
+    document.getElementById('formations').scrollIntoView({behavior: "smooth", block: 'start', inline: 'start'});
+    window.scrollTo(0, 700);
+  }
+
+  toFormations2() {
+    document.getElementById('formations').scrollIntoView({behavior: "smooth", block: 'start', inline: 'start'});
+    window.scrollTo(0, 1700);
   }
 
   toCarousel() {
-    document.getElementById('carousel').scrollIntoView({behavior:"smooth", block: 'start', inline: 'start'});
+    document.getElementById('carousel').scrollIntoView({behavior: "smooth", block: 'start', inline: 'start'});
+  }
+
+
+  useLanguage(language: string) {
+    alert(language);
+    //this.translate.use(language);
+    localStorage.setItem("langue", language)
   }
 }
 

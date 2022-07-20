@@ -61,7 +61,7 @@ export class CardTableComponent implements OnInit {
     console.log(atelier.usersEnrolling);
   }
   getAtelier(atelier: any) {
-    window.scrollTo(0,650);
+    window.scrollTo(0,1350);
     this.UnAtelier.push(atelier);
     console.log(this.UnAtelier);
     this.showModal2 = !this.showModal2;

@@ -39,7 +39,8 @@
                 <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
                 <div class="carousel-item">
 
-                    <img src="https://i.ibb.co/864Bz8v/1.jpg">
+                  <img src=" https://i.ibb.co/864Bz8v/1.jpg">
+
                     <div class="content">
                         <h4 class="text-3xl font-normal leading-normal mt-0 mb-2 text-white-800">
                             <strong>JamSalam</strong>
@@ -60,7 +61,9 @@
                 </div>
                 <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
                 <div class="carousel-item">
-                    <img src="https://i.ibb.co/HxH8fv2/2.jpg">
+
+                  <img src=" https://i.ibb.co/6Hx9Smj/IMG-9.jpg">
+
                     <div class="content">
                         <!-- <h1 class="text-1xl font-normal leading-normal mt-0 mb-2 text-white-800">
                             Formations
@@ -84,7 +87,7 @@
                 </div>
                 <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
                 <div class="carousel-item">
-                    <img src="https://i.ibb.co/wh7yTTF/3.jpg">
+                    <img src=" https://i.ibb.co/C2KF5zf/Whats-App-Image-2021-03-10-at-09-14-29.jpg">
                     <div class="content">
                         <!-- <h2 class="text-3xl font-normal leading-normal mt-0 mb-2 text-white-800">
                             JamSalam Contexte
@@ -106,12 +109,12 @@
                             </button> -->
                     </div>
                 </div>
-                <label for="carousel-3" class="carousel-control prev control-1">‹</label>
-                <label for="carousel-2" class="carousel-control next control-1">›</label>
-                <label for="carousel-1" class="carousel-control prev control-2">‹</label>
-                <label for="carousel-3" class="carousel-control next control-2">›</label>
-                <label for="carousel-2" class="carousel-control prev control-3">‹</label>
-                <label for="carousel-1" class="carousel-control next control-3">›</label>
+                <label for="carousel-3" class="carousel-control prev myCarousel control-1">‹</label>
+                <label for="carousel-2" class="carousel-control next myCarousel control-1">›</label>
+                <label for="carousel-1" class="carousel-control prev myCarousel control-2">‹</label>
+                <label for="carousel-3" class="carousel-control next myCarousel control-2">›</label>
+                <label for="carousel-2" class="carousel-control prev myCarousel control-3">‹</label>
+                <label for="carousel-1" class="carousel-control next myCarousel control-3">›</label>
                 <ol class="carousel-indicators">
                     <li>
                         <label for="carousel-1" class="carousel-bullet">•</label>
@@ -461,13 +464,243 @@
                 </div>
             </div>
         </div> -->
+      <div style="max-width: 75% !important; margin-left: 12%;position: relative;" *ngIf="showModal2" class="overflow-x-hidden overflow-y-auto relative inset-0 z-50 outline-none focus:outline-none justify-center items-center ">
+        <div class="relative w-auto my-6 mx-auto max-w-sm">
+          <!--content-->
+          <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+            <!--header-->
+            <div class="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
+              <h4 class="text-2xl font-semibold">
+                Detail du Contenus
+              </h4>
+              <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal2()">
+    <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+      ×
+    </span>
+              </button>
+            </div>
+            <!--body-->
+            <div class="relative p-6 flex-auto">
+
+              <div class="px-4 pt-3 pb-4 border-t border-gray-300 bg-gray-100 ">
+                <div class="text-xs uppercase font-bold text-gray-600 tracking-wide text-center">Fichier</div>
+                <p> <a target="#" href={{UnContenus[0].contenus}}><span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-green-600 bg-green-200 uppercase last:mr-0 mr-1">
+                      Ouvrir le Document
+                    </span></a>.</p>
+                <!-- <img src={{UnContenus[0].contenus}} class="photo"> -->
+                <br>
+                <p class="uppercase tracking-wide text-sm font-bold text-gray-700">Titre: {{UnContenus[0].titre}} </p>
+<!--                <p>Zone :{{UnContenus[0].zone}} </p>-->
+                <br>
+                <div class="text-xs uppercase font-bold text-gray-600 tracking-wide text-center">Details</div>
+                <p class="font-bold text-gray-900"> {{UnContenus[0].corps}}</p>
+                <br>
+                <p class=" text-gray-900">Creer par : {{UnContenus[0].username}} <br> Date creation : {{UnContenus[0].dateCreation}}</p>
+                <!-- <p class="text-sm text-gray-700">{{UnContenus[0].dateCreation}}</p> -->
+                <br>
+                <!-- <div class="text-xs uppercase font-bold text-gray-600 tracking-wide text-center">Video</div> -->
+                <!-- <div class="flex items-center pt-2 lavideo">
+                    <video controls>
+          <source src={{UnContenus[0].video}} type="video/mp4">
+          <source src={{UnContenus[0].video}} type="video/ogg">
+          Votre browser ne supporte pas de video .
+        </video>
+                </div> -->
+              </div>
+
+            </div>
+            <!--footer-->
+
+          </div>
+        </div>
+      </div>
 
         <div class="container mx-auto px-4 pb-32 pt-48" style="padding-top:0;">
+            <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded" [ngClass]="color === 'light' ? 'bg-white' : 'bg-gray-700 text-white'">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+        <div class="flex flex-wrap items-center">
+
+            <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
+                <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-white' : 'text-white'">
+                     Bibliothèque
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="block w-full overflow-x-auto">
+        <!-- Projects table -->
+        <table class="items-center w-full bg-transparent border-collapse">
+            <thead>
+                <tr>
+                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-white border-white'
+              : 'bg-gray-800 text-white border-white'
+          ">
+                        Titre
+                    </th>
+
+                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-white border-white'
+              : 'bg-gray-800 text-white border-white'
+          ">
+                        Type
+                    </th>
+                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-white border-white'
+              : 'bg-gray-800 text-white border-white'
+          ">
+                      Details
+                    </th>
+                    <!--<th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-white border-white'
+              : 'bg-gray-800 text-white border-white'
+          ">
+                        Enrolements
+                    </th>-->
+                    <!-- <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-gray-600 border-gray-200'
+              : 'bg-red-800 text-red-300 border-red-700'
+          ">
+                        Commentaires
+                    </th> -->
+                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-white border-white'
+              : 'bg-gray-800 text-white border-white'
+          ">
+                        Options
+                    </th>
+                    <!-- <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-gray-600 border-gray-200'
+              : 'bg-red-800 text-red-300 border-red-700'
+          ">
+                      Createur
+                  </th>
+                  <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-gray-600 border-gray-200'
+              : 'bg-red-800 text-red-300 border-red-700'
+          ">
+                      Date de creation
+                  </th> -->
+                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+            color === 'light'
+              ? 'bg-gray-100 text-white border-white'
+              : 'bg-gray-800 text-white border-white'
+          "></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of contenus;let j = index">
+                    <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center">
+                        <span class="ml-3 font-bold" [ngClass]="color === 'light' ? 'text-gray-700' : 'text-white'">
+                        {{item.titre | slice:0:40}} ...
+          </span>
+                    </th>
+                  <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                    <span *ngIf="item.zone==='GUIDE'" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-green-500 bg-green-200 uppercase last:mr-0 mr-1">
+                        {{item.zone}}
+                      </span>
+                    <span *ngIf="item.zone==='JEUX'" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-gray-500 bg-gray-200 uppercase last:mr-0 mr-1">
+                        {{item.zone}}
+                      </span>
+                    <span *ngIf="item.zone==='PIECE DE THEATRE'" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-white bg-teal-200 uppercase last:mr-0 mr-1">
+                        {{item.zone}}
+                      </span>
+                    <span *ngIf="item.zone==='BD'" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-red-600 bg-red-200 uppercase last:mr-0 mr-1">
+                        {{item.zone}}
+                      </span>
+                    <span *ngIf="item.zone==='MODULE'" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 uppercase last:mr-0 mr-1">
+                        {{item.zone}}
+                      </span>
+                    <span *ngIf="item.zone==='MANUEL'" class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-orange-500 bg-orange-200 uppercase last:mr-0 mr-1">
+                        {{item.zone}}
+                      </span>
+                  </td>
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        {{item.corps | slice:0:100}} ...
+                    </td>
+
+
+					<!--
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-purple-600 bg-purple-200 uppercase last:mr-0 mr-1">
+                        {{nbreUsersEnroler(item.usersEnrolling)}}
+                      </span>
+                    </td>-->
+                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+
+                        <!-- <button *ngIf="item.mail == mailcurrent || userT===roleadmin" (click)="onEditAtelier(item.id,item.contenus,item.video)" class=" text-orange-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 "
+                    type="button ">
+                <i class="fas fa-pencil-alt ">. modifier</i>
+              </button> -->
+                        <button *ngIf="isEnrol(item.usersEnrolling) || userT!=roleeleves" (click)="getAtelier(item)" class="text-purple-500 background-transparent font-bold  px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            type="button">
+              <i  class="fas fa-eye"> Detail </i>
+          </button>
+                        <button *ngIf="userT==roleeleves && !isEnrol(item.usersEnrolling)" (click)="enroll(item.id,item,mailcurrent)" class="text-green-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 "
+                            type="button ">
+                <i class="fas fa-map-pin "> Enrôler</i>
+              </button>
+                        <button *ngIf="mailcurrent==item.mail" (click)="onDeleteContenus(item.id,item.contenus)" class="text-red-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            type="button">
+                  <i class="fas fa-trash"> Supprimer</i>
+
+                      </button>
+
+                    </td>
+                    <!-- <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                      <div class="flex">
+                          <img src="assets/img/team-1-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-gray-100 shadow" />
+                          <img src="assets/img/team-2-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-gray-100 shadow -ml-4" />
+                          <img src="assets/img/team-3-800x800.jpg" alt="..." class="w-10 h-10 rounded-full border-2 border-gray-100 shadow -ml-4" />
+                          <img src="assets/img/team-4-470x470.png" alt="..." class="w-10 h-10 rounded-full border-2 border-gray-100 shadow -ml-4" />
+                      </div>
+                  </td> -->
+                    <!-- <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                      <div class="flex items-center">
+                          <span class="mr-2">60%</span>
+                          <div class="relative w-full">
+                              <div class="overflow-hidden h-2 text-xs flex rounded bg-red-200">
+                                  <div style="width: 60%;" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </td> -->
+                    <!-- <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right">
+                      <app-table-dropdown></app-table-dropdown>
+                  </td> -->
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+        </div>
+      <section class="pb-20 bg-gray-300 -mt-24">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
+            <div class="w-full mb-12 px-4">
+              <app-card-table></app-card-table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container mx-auto px-4 pb-32 pt-48" style="padding-top:0;">
             <div class="items-center flex flex-wrap">
                 <div class="w-full md:w-5/12 ml-auto px-12 md:px-4">
                     <div class="md:pr-12" *ngIf="!annonce[6].isedit; else elseBlock6">
                         <div class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                            <i class="fas fa-file-alt text-xl"></i>
+                            <!-- <i class="fas fa-file-alt text-xl"></i> -->
+							<i class="fas fa-play text-xl"></i>
                         </div>
                         <h3 class="text-3xl font-semibold">
                             {{annonce[6].nom_section}}
@@ -475,16 +708,20 @@
 
                         <p class="mt-4 text-lg leading-relaxed text-gray-600">
                             {{annonce[6].valeur}} </p>
-                        <button *ngIf="isAuth" [routerLink]="['/landing']" class="bg-blue-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                                Voir nos Ateliers <i class="fas fa-play"></i>
-                                            </button>
-                        <button *ngIf="!isAuth" (click)="myFunction()" class="bg-blue-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                                              Voir nos Ateliers <i class="fas fa-play"></i>
-                                                          </button>
+<!--                        <button  [routerLink]="['/videos']" class="bg-blue-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">-->
+<!--						Voir plus de videos <i class="fas fa-play"></i>-->
+<!--						</button>-->
+<!--                        <button *ngIf="!isAuth" (click)="myFunction()" class="bg-blue-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">-->
+<!--						Voir plus de videos <i class="fas fa-play"></i>-->
+<!--						</button>-->
                         <button *ngIf="isAccountAdmin" (click)="editsection(annonce[6])" class="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                             type="button">
                                   Modifier
                                 </button>
+                      <button class="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button" (click)="toImage()">
+                        Gallerie d'Images / videos <i class="fas fa-images"></i>
+                      </button>
 
                         <!-- <ul class="list-none mt-6">
                             <li class="py-2">
@@ -543,95 +780,153 @@
                 </div>
 
                 <div class="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
-                    <img alt="..." class="max-w-full rounded-lg shadow-xl" style="
-            transform: scale(1) perspective(1040px) rotateY(-11deg)
-              rotateX(2deg) rotate(2deg);
-          " src='https://i.ibb.co/Dg87Zcn/wca-programme-2017-education.jpg' />
+<!--                    <video controls-->
+<!--                           alt="..."-->
+<!--                           class="max-w-full rounded-lg shadow-xl"-->
+<!--                           style="transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg);"-->
+<!--                           src="https://youtu.be/nXBQAtM2cRA"-->
+<!--                           poster="https://i.ibb.co/FWrfVpZ/gdsg.png"-->
+<!--                           type="video"-->
+<!--                    > Verifier votre Connexion ... </video>-->
+                  <iframe width="560"
+                          height="315"
+                          class="max-w-full rounded-lg shadow-xl"
+                          style="transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg);"
+                          src="https://www.youtube.com/embed/Q8OTRTpPUH8"
+                          title="YouTube video player"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen></iframe>
                 </div>
             </div>
         </div>
-
-        <div class="justify-center text-center flex flex-wrap mt-24">
-            <div class="w-full md:w-6/12 px-12 md:px-4" *ngIf="!annonce[7].isedit; else elseBlock7">
-                <h2 class="font-semibold text-4xl"> {{annonce[7].nom_section}}</h2>
-                <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-600">
-                    {{annonce[7].valeur}}
-                </p>
-                <button *ngIf="isAccountAdmin" (click)="editsection(annonce[7])" class="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button">
-                      Modifier
-                    </button>
-                <br>
-            </div>
-            <ng-template #elseBlock7>
-                <textarea style="resize: auto;overflow: auto;" [(ngModel)]="annonce[7].editnom_section" placeholder="Titre Section"><br></textarea>
-                <textarea style="resize: auto;overflow: auto;" [(ngModel)]="annonce[7].editvaleur" placeholder="Corps Section"></textarea>
-                <div class="mt-12">
-                    <button (click)="annonce[7].isedit=false" class="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-              annuler
-            </button>
-                    <button (click)="modifiersection(annonce[7])" class="bg-green-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
-              valider
-            </button>
-                </div>
-            </ng-template>
-        </div>
+<!--        <div class="justify-center text-center flex flex-wrap mt-24">-->
+<!--            <div class="w-full md:w-6/12 px-12 md:px-4" *ngIf="!annonce[7].isedit; else elseBlock7">-->
+<!--                <h2 class="font-semibold text-4xl"> {{annonce[7].nom_section}}</h2>-->
+<!--                <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-600">-->
+<!--                    {{annonce[7].valeur}}-->
+<!--                </p>-->
+<!--                <button *ngIf="isAccountAdmin" (click)="editsection(annonce[7])" class="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"-->
+<!--                    type="button">-->
+<!--                      Modifier-->
+<!--                    </button>-->
+<!--                <br>-->
+<!--            </div>-->
+<!--            <ng-template #elseBlock7>-->
+<!--                <textarea style="resize: auto;overflow: auto;" [(ngModel)]="annonce[7].editnom_section" placeholder="Titre Section"><br></textarea>-->
+<!--                <textarea style="resize: auto;overflow: auto;" [(ngModel)]="annonce[7].editvaleur" placeholder="Corps Section"></textarea>-->
+<!--                <div class="mt-12">-->
+<!--                    <button (click)="annonce[7].isedit=false" class="bg-yellow-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">-->
+<!--              annuler-->
+<!--            </button>-->
+<!--                    <button (click)="modifiersection(annonce[7])" class="bg-green-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">-->
+<!--              valider-->
+<!--            </button>-->
+<!--                </div>-->
+<!--            </ng-template>-->
+<!--        </div>-->
     </section>
 
     <div>
     </div>
     <section class="block relative z-1 bg-gray-700" id="gallerie">
-        <div class="container mx-auto">
+
+      <p style="text-align: center;color: #ffffff;font-weight: bold">Gallerie</p>
+      <div class="wrapper">
+        <section id="section1">
+          <a href="#section1" class="arrow__btn left-arrow">‹</a>
+          <div class="item" >
+            <a  href="https://i.ibb.co/s1ddGp3/Whats-App-Image-2020-11-20-at-10-31-57.jpg">
+              <img
+                src="https://i.ibb.co/C2KF5zf/Whats-App-Image-2021-03-10-at-09-14-29.jpg"
+                alt="Describe Image">
+            </a>
+          </div>
+          <div class="item" *ngFor="let item of images[0] | slice:0:4;let j = index">
+            <a  href={{images[0][j]}}>
+              <img
+                *ngIf="j==0"
+                src="https://i.ibb.co/s1ddGp3/Whats-App-Image-2020-11-20-at-10-31-57.jpg"
+                alt="Describe Image">
+              <img *ngIf="j!=0"
+                src={{images[0][j]}}
+                alt="Describe Image">
+            </a>
+          </div>
+          <a href="#section2" class="arrow__btn right-arrow">›</a>
+        </section>
+        <section id="section2">
+          <a href="#section1" class="arrow__btn left-arrow">‹</a>
+          <div class="item" *ngFor="let item of images[0] | slice:5:10;let j = index">
+            <a  href={{images[0][j]}}>
+              <img
+
+                src={{images[0][j]}}
+                alt="Describe Image">
+            </a>
+          </div>
+          <a href="#section1" class="arrow__btn right-arrow">›</a>
+        </section>
+      </div>
+      <br>
+      <div class="container mx-auto">
+        <br>
             <div class="justify-center flex flex-wrap">
+              <br>
                 <div class="w-full lg:w-12/12 px-4 -mt-24" style="    margin-top: -4rem;">
                     <div class="flex flex-wrap">
-                        <div class="w-full lg:w-4/12 px-4">
-                            <h5 class="text-xl font-semibold pb-4 text-center">
-                                Lycée Arafat
+                        <div class="w-full lg:w-4/12 px-4" style="margin-left: 15%; color: #ffffff">
+                            <h5 class="text-xl font-semibold pb-4 text-center" >
+                                Photos
                             </h5>
-                            <a *ngIf="isAuth" [routerLink]="['/gallery']">
+                            <a [routerLink]="['/gallery']">
                                 <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/GJwRBVq/Whats-App-Image-2020-11-21-at-14-55-50.jpg" />
+                                    <img alt="..."
+                                         class="align-middle border-none max-w-full h-auto rounded-lg"
+                                         src="https://i.ibb.co/s1ddGp3/Whats-App-Image-2020-11-20-at-10-31-57.jpg"
+                                    />
                                 </div>
                             </a>
-                            <a *ngIf="!isAuth" [routerLink]="['/auth/login']">
+<!--                            <a *ngIf="!isAuth" [routerLink]="['/auth/login']">-->
+<!--                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">-->
+<!--                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/ZS9Vdqj/Whats-App-Image-2021-03-03-at-18-30-38.jpg" />-->
+<!--                                </div>-->
+<!--                            </a>-->
+                        </div>
+
+                        <div class="w-full lg:w-4/12 px-4">
+                            <h5 class="text-xl font-semibold pb-4 text-center" style=" color: #ffffff">
+                                Videos
+                            </h5>
+<!--                            <a *ngIf="!isAuth" [routerLink]="['/auth/login']">-->
+<!--                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">-->
+<!--                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/ZS9Vdqj/Whats-App-Image-2021-03-03-at-18-30-38.jpg" />-->
+<!--                                </div>-->
+<!--                            </a>-->
+                            <a  [routerLink]="['/videos']">
                                 <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/GJwRBVq/Whats-App-Image-2020-11-21-at-14-55-50.jpg" />
+                                    <img alt="..."
+                                         class="align-middle border-none max-w-full h-auto rounded-lg"
+                                         src="https://i.ibb.co/5n90Bm5/adhps.jpg" />
                                 </div>
                             </a>
                         </div>
 
-                        <div class="w-full lg:w-4/12 px-4">
-                            <h5 class="text-xl font-semibold pb-4 text-center">
-                                Lycée El Mina
-                            </h5>
-                            <a *ngIf="!isAuth" [routerLink]="['/auth/login']">
-                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/XpsKJ2R/Whats-App-Image-2020-11-21-at-14-55-58.jpg" />
-                                </div>
-                            </a>
-                            <a *ngIf="isAuth" [routerLink]="['/gallery']">
-                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/XpsKJ2R/Whats-App-Image-2020-11-21-at-14-55-58.jpg" />
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="w-full lg:w-4/12 px-4">
-                            <h5 class="text-xl font-semibold pb-4 text-center">
-                                Lycée Sebkha
-                            </h5>
-                            <a *ngIf="isAuth" [routerLink]="['/gallery']">
-                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/XpsKJ2R/Whats-App-Image-2020-11-21-at-14-55-58.jpg" />
-                                </div>
-                            </a>
-                            <a *ngIf="!isAuth" [routerLink]="['/auth/login']">
-                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
-                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/XpsKJ2R/Whats-App-Image-2020-11-21-at-14-55-58.jpg" />
-                                </div>
-                            </a>
-                        </div>
+<!--                        <div class="w-full lg:w-4/12 px-4">-->
+<!--                            <h5 class="text-xl font-semibold pb-4 text-center">-->
+<!--                                Photos & Videos-->
+<!--                            </h5>-->
+<!--                            <a *ngIf="isAuth" [routerLink]="['/gallery']">-->
+<!--                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">-->
+<!--                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/ZS9Vdqj/Whats-App-Image-2021-03-03-at-18-30-38.jpg" />-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                            <a *ngIf="!isAuth" [routerLink]="['/auth/login']">-->
+<!--                                <div class="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">-->
+<!--                                    <img alt="..." class="align-middle border-none max-w-full h-auto rounded-lg" src="https://i.ibb.co/ZS9Vdqj/Whats-App-Image-2021-03-03-at-18-30-38.jpg" />-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
                         <div class="w-full lg:w-4/12 px-4">
                             <br>
                         </div>
@@ -644,125 +939,165 @@
     <section class="pt-20 pb-48 justify-center text-center " id="equipe">
         <div class="container mx-auto px-4 ">
             <div class="flex flex-wrap justify-center text-center mb-24 ">
-                <div class="w-full lg:w-6/12 px-4 ">
+                <div class="w-full  px-4 ">
                     <h2 class="text-4xl font-semibold ">Nos partenaires</h2>
-                    <p class="text-lg leading-relaxed m-4 text-gray-600 ">
+                  <span class="bodytext">
+                    <marquee direction=left>
+                     <h4>
+                       <strong>
+                         <p class="text-lg leading-relaxed m-4 text-gray-600 ">
+                           <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png">  Lycée de Riyadh ,
+                           <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Lycée d’El Mina ,
+                           <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Lycée d’Arafat ,
+                           <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Lycée de Toujounine
+                         </p>
+                       </strong>
+                     </h4>
+                    </marquee>
+                  </span>
+                  <span class="bodytext">
+                    <marquee direction=right>
+                      <h4>
+                        <strong>
+                          <p class="text-lg leading-relaxed m-4 text-gray-600 ">
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png">  Établissement privé Al-Akhyar de Toujounine,
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png">  Établissement privé El Ilm d’El Mina,
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png">  Établissement privé Al-Akhyar de Toujounine,
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Établissement privé Ahd Tidjani De Riyad
+                          </p>
+                        </strong>
+                      </h4>
+                    </marquee>
+                  </span>
+                  <span class="bodytext">
+                    <marquee direction=right>
+                      <h4>
+                        <strong>
+                          <p class="text-lg leading-relaxed m-4 text-gray-600 ">
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png">  Mahadra El Bir Wa El Irchad de Riyad,
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Mahadra Al –Argham d’El Mina,
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Mahadra Najah d’Arafat,
+                            <img style=" width: 2%; display: inline-flex;" src="https://i.ibb.co/25t67Q8/t-l-chargement.png"> Mahadra El Itghane de Toujounine
+                          </p>
+                        </strong>
+                      </h4>
+                    </marquee>
+                  </span>
 
-                    </p>
                 </div>
             </div>
-            <div class="flex flex-wrap ">
-                <!-- <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">
-                    <div class="px-6 ">
-                        <img alt="... " src="https://i.ibb.co/3NRYkzh/pp.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />
-                        <div class="pt-6 text-center ">
-                            <h5 class="text-xl font-bold ">Abdoulaye Niang</h5>
-                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">
-                                Chef de projet
-                            </p>
-                            <div class="mt-6 ">
-                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-twitter "></i>
-              </button>
-                                <button class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-facebook-f "></i>
-              </button>
-                                <button class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-dribbble "></i>
-              </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">
-                    <div class="px-6 ">
-                        <img alt="... " src="https://i.ibb.co/PjfR9Vn/pp-1.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />
-                        <div class="pt-6 text-center ">
-                            <h5 class="text-xl font-bold ">Ahmada Kelly</h5>
-                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">
-                                Marketing Specialist
-                            </p>
-                            <div class="mt-6 ">
-                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-google "></i>
-              </button>
-                                <button class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-facebook-f "></i>
-              </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">
-                    <div class="px-6 ">
-                        <img alt="... " src="https://i.ibb.co/pWLrJrD/DSCF0052.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />
-                        <div class="pt-6 text-center ">
-                            <h5 class="text-xl font-bold ">Mamadou Idrisa</h5>
-                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">
-                                Web Développeur
-                            </p>
-                            <div class="mt-6 ">
-                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-google "></i>
-              </button>
-                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-twitter "></i>
-              </button>
-                                <button class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-instagram "></i>
-              </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">
-                    <div class="px-6 ">
-                        <img alt="... " src="https://i.ibb.co/pWLrJrD/DSCF0052.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />
-                        <div class="pt-6 text-center ">
-                            <h5 class="text-xl font-bold ">Mamadou Idrisa</h5>
-                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">
-                                Web Développeur
-                            </p>
-                            <div class="mt-6 ">
-                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-              <i class="fab fa-google "></i>
-            </button>
-                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-              <i class="fab fa-twitter "></i>
-            </button>
-                                <button class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-              <i class="fab fa-instagram "></i>
-            </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">
-                    <div class="px-6 ">
-                        <img alt="... " src="assets/img/team-4-470x470.png " class="shadow-lg rounded-full mx-auto max-w-120-px " />
-                        <div class="pt-6 text-center ">
-                            <h5 class="text-xl font-bold ">Jenna Kardi</h5>
-                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">
-                                Founder and CEO
-                            </p>
-                            <div class="mt-6 ">
-                                <button class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-dribbble "></i>
-              </button>
-                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-google "></i>
-              </button>
-                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-twitter "></i>
-              </button>
-                                <button class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">
-                <i class="fab fa-instagram "></i>
-              </button>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+<!--            <div class="flex flex-wrap ">-->
+<!--                &lt;!&ndash; <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">-->
+<!--                    <div class="px-6 ">-->
+<!--                        <img alt="... " src="https://i.ibb.co/3NRYkzh/pp.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />-->
+<!--                        <div class="pt-6 text-center ">-->
+<!--                            <h5 class="text-xl font-bold ">Abdoulaye Niang</h5>-->
+<!--                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">-->
+<!--                                Chef de projet-->
+<!--                            </p>-->
+<!--                            <div class="mt-6 ">-->
+<!--                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-twitter "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-facebook-f "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-dribbble "></i>-->
+<!--              </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">-->
+<!--                    <div class="px-6 ">-->
+<!--                        <img alt="... " src="https://i.ibb.co/PjfR9Vn/pp-1.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />-->
+<!--                        <div class="pt-6 text-center ">-->
+<!--                            <h5 class="text-xl font-bold ">Ahmada Kelly</h5>-->
+<!--                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">-->
+<!--                                Marketing Specialist-->
+<!--                            </p>-->
+<!--                            <div class="mt-6 ">-->
+<!--                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-google "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-facebook-f "></i>-->
+<!--              </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">-->
+<!--                    <div class="px-6 ">-->
+<!--                        <img alt="... " src="https://i.ibb.co/pWLrJrD/DSCF0052.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />-->
+<!--                        <div class="pt-6 text-center ">-->
+<!--                            <h5 class="text-xl font-bold ">Mamadou Idrisa</h5>-->
+<!--                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">-->
+<!--                                Web Développeur-->
+<!--                            </p>-->
+<!--                            <div class="mt-6 ">-->
+<!--                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-google "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-twitter "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-instagram "></i>-->
+<!--              </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">-->
+<!--                    <div class="px-6 ">-->
+<!--                        <img alt="... " src="https://i.ibb.co/pWLrJrD/DSCF0052.jpg" class="shadow-lg rounded-full mx-auto max-w-120-px " />-->
+<!--                        <div class="pt-6 text-center ">-->
+<!--                            <h5 class="text-xl font-bold ">Mamadou Idrisa</h5>-->
+<!--                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">-->
+<!--                                Web Développeur-->
+<!--                            </p>-->
+<!--                            <div class="mt-6 ">-->
+<!--                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--              <i class="fab fa-google "></i>-->
+<!--            </button>-->
+<!--                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--              <i class="fab fa-twitter "></i>-->
+<!--            </button>-->
+<!--                                <button class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--              <i class="fab fa-instagram "></i>-->
+<!--            </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div> &ndash;&gt;-->
+<!--                &lt;!&ndash; <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 ">-->
+<!--                    <div class="px-6 ">-->
+<!--                        <img alt="... " src="assets/img/team-4-470x470.png " class="shadow-lg rounded-full mx-auto max-w-120-px " />-->
+<!--                        <div class="pt-6 text-center ">-->
+<!--                            <h5 class="text-xl font-bold ">Jenna Kardi</h5>-->
+<!--                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold ">-->
+<!--                                Founder and CEO-->
+<!--                            </p>-->
+<!--                            <div class="mt-6 ">-->
+<!--                                <button class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-dribbble "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-google "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-twitter "></i>-->
+<!--              </button>-->
+<!--                                <button class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1 " type="button ">-->
+<!--                <i class="fab fa-instagram "></i>-->
+<!--              </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div> &ndash;&gt;-->
+<!--            </div>-->
         </div>
     </section>
 

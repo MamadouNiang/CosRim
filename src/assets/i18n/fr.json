@@ -1,0 +1,24 @@
+{
+  "navbar": {
+    "langue": {
+      "en": "English",
+      "fr": "French",
+      "ar": "عربى"
+    },
+    "volet": {
+      "accueil": "accueil",
+      "FORMATION_BIBLIOTHÈQUE": "FORMATION_BIBLIOTHÈQUE",
+      "ACTIVITÉS": "ACTIVITÉS",
+      "GALLERIE" : "GALLERIE",
+      "NOS_PARTENAIRES" : "NOS_PARTENAIRES",
+      "CONTACT" : "CONTACT",
+      "SE_CONNECTER" : "SE_CONNECTER",
+      "DASHBOARD": "Tableau de bord"
+    },
+    "indexCarousel": {
+      "image1": "",
+      "image2": "",
+      "image3": ""
+    }
+  }
+}

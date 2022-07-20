@@ -53,7 +53,7 @@
 
             <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-center">
                 <h3 class="font-semibold text-lg" [ngClass]="color === 'light' ? 'text-gray-800' : 'text-white'">
-                    Listes des Ateliers
+                    Activités
                 </h3>
             </div>
         </div>
@@ -70,13 +70,13 @@
             ">
                         Projet
                     </th>
-                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
-              color === 'light'
-                ? 'bg-gray-100 text-gray-600 border-gray-200'
-                : 'bg-red-800 text-red-300 border-red-700'
-            ">
-                        Zone
-                    </th>
+<!--                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="-->
+<!--              color === 'light'-->
+<!--                ? 'bg-gray-100 text-gray-600 border-gray-200'-->
+<!--                : 'bg-red-800 text-red-300 border-red-700'-->
+<!--            ">-->
+<!--                        Zone-->
+<!--                    </th>-->
                     <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
               color === 'light'
                 ? 'bg-gray-100 text-gray-600 border-gray-200'
@@ -84,13 +84,13 @@
             ">
                         Detail
                     </th>
-                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
-              color === 'light'
-                ? 'bg-gray-100 text-gray-600 border-gray-200'
-                : 'bg-red-800 text-red-300 border-red-700'
-            ">
-                        Enrolements
-                    </th>
+<!--                    <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="-->
+<!--              color === 'light'-->
+<!--                ? 'bg-gray-100 text-gray-600 border-gray-200'-->
+<!--                : 'bg-red-800 text-red-300 border-red-700'-->
+<!--            ">-->
+<!--                        Enrolements-->
+<!--                    </th>-->
                     <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
               color === 'light'
                 ? 'bg-gray-100 text-gray-600 border-gray-200'
@@ -127,21 +127,21 @@
                           {{item.titre | slice:0:30}} ...
             </span>
                     </th>
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-teal-600 bg-teal-200 uppercase last:mr-0 mr-1">
-                        {{item.zone}}
-                      </span>
+<!--                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">-->
+<!--                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-teal-600 bg-teal-200 uppercase last:mr-0 mr-1">-->
+<!--                        {{item.zone}}-->
+<!--                      </span>-->
 
-                    </td>
+<!--                    </td>-->
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                         {{item.corps | slice:0:60}} ...
                     </td>
-                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-purple-600 bg-purple-200 uppercase last:mr-0 mr-1">
-                        {{nbreUsersEnroler(item.usersEnrolling)}}
-                      </span>
+<!--                    <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">-->
+<!--                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-purple-600 bg-purple-200 uppercase last:mr-0 mr-1">-->
+<!--                        {{nbreUsersEnroler(item.usersEnrolling)}}-->
+<!--                      </span>-->
 
-                    </td>
+<!--                    </td>-->
                     <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
 
                         <!-- <button *ngIf="item.mail == mailcurrent || userT===roleadmin" (click)="onEditAtelier(item.id,item.photo,item.video)" class=" text-orange-500 background-transparent font-bold uppercase px-3 py-1 text-xs outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 "

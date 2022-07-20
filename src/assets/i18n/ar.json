@@ -1,0 +1,24 @@
+{
+  "navbar": {
+    "langue": {
+      "en": "English",
+      "fr": "French",
+      "ar": "عربى"
+    },
+    "volet": {
+      "accueil": "الصفحة الرئيسية",
+      "FORMATION_BIBLIOTHÈQUE": "التدريب / المكتبة",
+      "ACTIVITÉS": "أنشطة",
+      "GALLERIE" : "ملفات الصور",
+      "NOS_PARTENAIRES" : "شركاؤنا",
+      "CONTACT" : "جهات الاتصال",
+      "SE_CONNECTER" : "الإتصال",
+      "DASHBOARD": "لوحة القيادة"
+    },
+    "indexCarousel": {
+      "image1": "",
+      "image2": "",
+      "image3": ""
+    }
+  }
+}

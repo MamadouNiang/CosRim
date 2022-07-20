@@ -3,37 +3,37 @@
         margin: 0px;
         padding: 0px;
     }
-    
+
     .carousel {
         position: relative;
         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
         margin-top: 26px;
     }
-    
+
     .carousel-inner {
         position: relative;
         overflow: hidden;
         width: 100%;
     }
-    
+
     .carousel-open:checked+.carousel-item {
         position: static;
         opacity: 100;
     }
-    
+
     .carousel-item {
         position: absolute;
         opacity: 0;
         -webkit-transition: opacity 0.6s ease-out;
         transition: opacity 0.6s ease-out;
     }
-    
+
     .carousel-item img {
         // display: block;
         height: -webkit-fill-available;
         width: -webkit-fill-available;
     }
-    
+
     .carousel-item .content {
         position: absolute;
         top: 45%;
@@ -47,7 +47,7 @@
         color: #ffffff;
         padding: 10px;
     }
-    
+
     @media only screen and (max-width: 700px) {
         .carousel-item .content {
             position: absolute;
@@ -62,7 +62,7 @@
             padding: 10px;
         }
     }
-    
+
     .carousel-control {
         background: rgba(0, 0, 0, 0.28);
         border-radius: 50%;
@@ -82,26 +82,26 @@
         width: 40px;
         z-index: 10;
     }
-    
+
     .carousel-control.prev {
         left: 2%;
     }
-    
+
     .carousel-control.next {
         right: 2%;
     }
-    
+
     .carousel-control:hover {
         background: rgba(0, 0, 0, 0.8);
         color: #aaaaaa;
     }
-    
+
     #carousel-1:checked~.control-1,
     #carousel-2:checked~.control-2,
     #carousel-3:checked~.control-3 {
         display: block;
     }
-    
+
     .carousel-indicators {
         list-style: none;
         margin: 0;
@@ -113,29 +113,29 @@
         text-align: center;
         z-index: 10;
     }
-    
+
     .carousel-indicators li {
         display: inline-block;
         margin: 0 5px;
     }
-    
+
     .carousel-bullet {
         color: #fff;
         cursor: pointer;
         display: block;
         font-size: 35px;
     }
-    
+
     .carousel-bullet:hover {
         color: #aaaaaa;
     }
-    
+
     #carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
     #carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
     #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
         color: #428bca;
     }
-    
+
     #title {
         width: 100%;
         position: absolute;
@@ -148,9 +148,85 @@
         z-index: 9999;
         text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
     }
-    
+
     @media only screen and (min-width: 700px) {
         .content {
             font-size: 30px;
         }
+    }
+
+    //$itemGrow: 1.2;
+    $duration: 250ms;
+
+    //
+    //h1 {
+    //  color: #ffffff;
+    //  text-align: center;
+    //}
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(3,100%);
+      overflow:hidden;
+      scroll-behavior: smooth;
+
+      section {
+        width: 100%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        margin: 20px 0;
+
+        .item {
+          position: relative;
+          padding: 0 2px;
+          transition: $duration all;
+
+          &:hover {
+            margin: 0 40px;
+            transform: scale(1.2);
+          }
+
+
+          .heading {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+          }
+
+          .duration {
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            color: #fff;
+          }
+
+        }
+
+        .arrow__btn {
+          position: absolute;
+          color: #fff;
+          text-decoration: none;
+          font-size: 5em;
+          background:rgb(0,0,0);
+          width: 50px;
+          //padding: 20px;
+          text-align: center;
+          z-index: 1;
+        }
+
+        .left-arrow {
+          top:0; bottom:0; left:0;
+          background: linear-gradient(
+              -90deg
+            , rgba(0, 0, 0, 0) 0%, #4a5568d1 100% 100%);        }
+
+        .right-arrow {
+          top:0; bottom:0; right: 0;
+          background: linear-gradient(
+              -90deg
+            , rgba(0, 0, 0, 0) 0%, #4a5568d1 100% 100%);        }
+
+      }
     }

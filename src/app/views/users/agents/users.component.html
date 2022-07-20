@@ -9,11 +9,11 @@
                  </button>
                 <button (click)="getUsers('formateur')" *ngIf="isAccountAdmin" class="text-green-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button">
-                    <i class="fas fa-user-shield"></i> Liste des Agents
+                    <i class="fas fa-user-shield"></i> Liste des Formateurs
                 </button>
                 <button (click)="getUsers('tuteur')" *ngIf="isAccountAgent || isAccountAdmin" class="text-indigo-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button">
-                  <i class="fas fa-chalkboard-teacher"></i> Liste des professeurs
+                  <i class="fas fa-chalkboard-teacher"></i> Liste des Tuteurs
                 </button>
                 <button (click)="getUsers('visiteur')" *ngIf="isAccountProf || isAccountAdmin || isAccountAgent" class="text-orange-500 bg-transparent border border-solid border-red-500 hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button">
@@ -53,13 +53,13 @@
               ">
                             Email
                         </th>
-                        <!-- <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
+                        <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
                 color === 'light'
                   ? 'bg-gray-100 text-gray-600 border-gray-200'
                   : 'bg-red-800 text-red-300 border-red-700'
               ">
                             Type User
-                        </th> -->
+                        </th>
                         <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left" [ngClass]="
                         color === 'light'
                           ? 'bg-gray-100 text-gray-600 border-gray-200'
@@ -107,11 +107,11 @@
                               {{item.nom_prenom}} </span>
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                            {{item.email | slice:0:10}}
+                            {{item.email }}
                         </td>
-                        <!-- <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                             <i class="fas fa-circle text-orange-500 mr-2"></i> {{item.userType}}
-                        </td> -->
+                        </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                             <i class="fas fa-circle text-blackr-2"></i> {{item.zone}}
                         </td>
@@ -144,6 +144,11 @@
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                             <!-- <img src="https://i.ibb.co/jHxRQkN/computer-icons-user-profile-avatar-profile.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..." /> -->
                             <span class="ml-3 font-bold" [ngClass]="color === 'light' ? 'text-gray-700' : 'text-white'">
+                     {{i+1}} </span>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <!-- <img src="https://i.ibb.co/jHxRQkN/computer-icons-user-profile-avatar-profile.jpg" class="h-12 w-12 bg-white rounded-full border" alt="..." /> -->
+                            <span class="ml-3 font-bold" [ngClass]="color === 'light' ? 'text-gray-700' : 'text-white'">
                   <input type="text" [(ngModel)]="item.editnom_prenom">
 </span>
                         </td>
@@ -153,12 +158,29 @@
                         </td>
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                             <select [(ngModel)]="item.edituserType">
-                              <option disabled> </option>
-                              <option value="administrateur" >Administrateur</option>
-                              <option value="formateur" >Formateur ou Concepteur</option>
-                              <option value="tuteur">Tuteur animateur</option>
-                              <option value="visiteur">Visiteur</option>
-              </select> </td>
+                            <option disabled> </option>
+                            <option value="administrateur" >Administrateur</option>
+                            <option value="formateur" >Formateur ou Concepteur</option>
+                            <option value="tuteur">Tuteur animateur</option>
+                            <option value="visiteur">Visiteur</option>
+            </select> </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <select [(ngModel)]="item.editzone">
+                            <option disabled> </option>
+                            <option value="toujounine" >Toujounine</option>
+                            <option value="arafat" >Arafat</option>
+                            <option value="elmina">Elmina</option>
+                            <option value="riyad">Riyad</option>
+            </select> </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            <select [(ngModel)]="item.editetablissement">
+                <option disabled> </option>
+                <option value="prive" >Privé</option>
+                <option value="public" >Public</option>
+                <option value="mahadra">Mahadra</option>
+
+</select> </td>
+
                         <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                             <select [(ngModel)]="item.edituserAccount">
                   <option disabled></option>

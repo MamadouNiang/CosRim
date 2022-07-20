@@ -1,0 +1,13 @@
+{
+  "appId": "com.jamsalam.app",
+  "appName": "jamsalam",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/tailwind-webapp-angular",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

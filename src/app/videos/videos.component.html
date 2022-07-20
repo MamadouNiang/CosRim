@@ -1,0 +1,120 @@
+<app-auth-navbar></app-auth-navbar>
+<main>
+
+    <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+
+        <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
+        background-image: url('https://i.ibb.co/864Bz8v/1.jpg');">
+            <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+            <div class="items-center flex flex-wrap">
+                <div class="menu w-full lg:w-11/12 px-4 ml-auto mr-auto text-center">
+                    <div class="pr-8">
+                        <div class="grid gap-4 grid-cols-2 text-white font-semibold text-center">
+                            <div></div>
+                            <!-- <div>2</div>
+                        <div>3</div>
+                        <div>4</div> -->
+                        </div>
+                        <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-left">
+<!--                            <div class="relative" style="margin-top: 25%;">-->
+<!--                                <a [routerLink]="['/profile']">-->
+<!--                                    <img *ngIf="infoUser.photoURL!=null" style="margin-left: 0%;max-width: 60px;" alt="..." src={{infoUser.photoURL}} class="avatar shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-100-px" />-->
+<!--                                    <img *ngIf="infoUser.photoURL==null" style="margin-left: 0%;max-width: 60px;" alt="..." src="https://i.ibb.co/mSJvtm8/computer-icons-user-profile-avatar-profile.jpg" class="avatar shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-100-px"-->
+<!--                                    />-->
+<!--                                </a>-->
+
+
+<!--                            </div>-->
+<!--                            <h1 *ngIf="infoUser.displayName!=null" class="ecriture text-white font-semibold text-center" style="margin-left: 70px;">-->
+<!--                                {{infoUser.displayName}} : {{userT}}-->
+<!--                            </h1>-->
+<!--                            <h1 *ngIf="infoUser.displayName==null" class="ecriture text-white font-semibold text-center" style="margin-left: 70px;">-->
+<!--                                {{user}} : {{userT}}-->
+<!--                            </h1>-->
+                            <button [routerLink]="['/index']" class="retour  bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">
+                              <i class="fas fa-undo"></i> Retour
+                            </button>
+                        </div>
+
+                        <div class=" col-xs-2" *ngIf="userT==roleadmin">
+                            <input type="file" (change)="hanldeFiles($event)" multiple accept="video/*" /><button (click)="uploadFiles()" class="text-green-500 background-transparent font-bold uppercase px-8 py-3 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button">
+                              <i class="fas fa-check-circle">Valider</i>
+                            </button>
+                        </div>
+                        <div *ngIf='upload'>
+                            <div class="relative pt-1">
+                                <div class="flex mb-2 items-center justify-between">
+                                    <!-- <div>
+
+                                    </div> -->
+                                    <div class="text-right">
+                                        <!-- <span class="text-xs font-semibold inline-block text-green-600">
+
+                                </span> -->
+                                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                                  {{upload?.progress}}% : Chargement des fichiers
+                                </span>
+                                    </div>
+                                </div>
+                                <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-200">
+                                    <div [ngStyle]="{ 'width':upload?.progress + '%' }" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="flex items-center justify-center p-6 border-t border-solid border-gray-300 rounded-b">
+                            <button type="submit" class="bg-green-500 text-white active:bg-yellow-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"> valider
+                                    </button>
+                        </div> -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <section class="pb-20 bg-gray-300 -mt-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6">
+                <div class="w-full mb-12 px-4">
+                    <!-- <app-card-table></app-card-table> -->
+                </div>
+
+                <div class="responsive" *ngFor="let item of videos[0];let j = index">
+                    <div class="gallery">
+                        <a target="_blank" href={{videos[0][j]}}>
+                            <!-- <img alt="Zoom" width="600" height="400" class="gallerie w-6/12 sm:w-auto md:w-full lg:w-32 xl:w-3/4" src={{videos[0][j]}} alt="Sunset in the mountains"> -->
+                            <div class="flex items-center pt-2 lavideo gallerie w-6/12 sm:w-auto md:w-full lg:w-32 xl:w-3/4">
+                                <video controls>
+                              <source src={{videos[0][j]}} type="video/mp4">
+                              <source src={{videos[0][j]}} type="video/ogg">
+                              Votre browser ne supporte pas de video .
+                            </video>
+                            </div>
+
+                        </a>
+                         <div *ngIf="videos[0][j].includes('acemep1')" class="desc"> Mini-série « Abou choix 2 vie » : <strong> Episode 1 </strong></div>
+                         <div *ngIf="videos[0][j].includes('acemep2')" class="desc"> Mini-série « Abou choix 2 vie » : <strong> Episode 2 </strong></div>
+                         <div *ngIf="videos[0][j].includes('acemep3')" class="desc"> Mini-série « Abou choix 2 vie » : <strong> Episode 3 </strong></div>
+                         <div *ngIf="videos[0][j].includes('acemep4')" class="desc"> Mini-série « Abou choix 2 vie » : <strong> Episode 4 </strong></div>
+                         <div *ngIf="videos[0][j].includes('clpdr')" class="desc"> Comprendre le processus de radicalisation </div>
+                         <div *ngIf="videos[0][j].includes('uneleveunlivre')" class="desc">Un élève, Un livre : Ressources Enseignements moral et Civique  </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="flex flex-wrap items-center mt-32 ">
+                <div class="w-full md:w-4/12 px-4 mr-auto ml-auto ">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+<app-footer></app-footer>

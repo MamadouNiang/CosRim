@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class UserCrudService {
     this.fireservice.doc("users/" + id).update(user);
   }
 
-  getAllUsers() {
+  getAllUsers(): Observable<any> {
     return this.fireservice.collection("users").snapshotChanges();
   }
 

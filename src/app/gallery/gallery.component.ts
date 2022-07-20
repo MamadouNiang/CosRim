@@ -62,8 +62,11 @@ export class GalleryComponent implements OnInit {
           userTypeF: e.payload.doc.data()["userType"],
         };
       });
+
       for (let i = 0; i < this.user.length; i++) {
-        if (this.authService.currentUserName == this.user[i].emailF) {
+        console.log(this.authService.currentUserName );
+
+        if (this.authService.currentUserName === this.user[i].emailF) {
           let usert = this.user[i].userTypeF;
           let mailF = this.user[i].emailF;
           this.user = this.user[i].nomPrenom;

@@ -31,7 +31,7 @@ import { ChargementComponent } from './views/chargement/chargement.component';
 import { BibloComponent } from "./views/biblo/biblo.component";
 import { GalleryComponent } from "./gallery/gallery.component";
 
-
+import { VideosComponent } from "./videos/videos.component";
 
 const routes: Routes = [
   {
@@ -72,7 +72,8 @@ const routes: Routes = [
   { path: "landing", canActivate: [AthGuardService], component: LandingComponent, },
   { path: "echanges", canActivate: [AthGuardService], component: EchangesComponent, },
   { path: "biblo", canActivate: [AthGuardService], component: BibloComponent, },
-  { path: "gallery",  component: GalleryComponent, },
+  { path: "gallery", component: GalleryComponent, },
+  { path: "videos",  component: VideosComponent, },
 
   { path: "chargement", component: ChargementComponent, },
   { path: "index", component: IndexComponent },

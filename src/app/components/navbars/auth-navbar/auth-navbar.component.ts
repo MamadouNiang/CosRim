@@ -12,6 +12,7 @@ export class AuthNavbarComponent implements OnInit {
   isAuth: boolean;
   isAccountAdmin: boolean;
   navbarOpen = false;
+  userTypeF;
 
   constructor(public userService: UserCrudService, private authService: AuthService,public route:Router) {}
   onSignOut() {
@@ -45,8 +46,10 @@ export class AuthNavbarComponent implements OnInit {
             // console.log("ici je suis null i pass");
           } else {
             if (useri.email == user[i].emailF) {
-              if (user[i].userType == "administrateur") {
+              if (user[i].userType == "administrateur" || "formateur" || "tuteur") {
                 this.isAccountAdmin = true;
+                this.userTypeF = user[i].userType;
+                console.log(this.userTypeF);
               } else {
                 this.isAccountAdmin = false;
               }

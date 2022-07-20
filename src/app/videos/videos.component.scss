@@ -1,0 +1,152 @@
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media only screen and (min-width: 1281px) {
+    .retour {
+        margin-left: 348%;
+    }
+    .gallerie {
+        width: 100%;
+    }
+}
+
+
+/*
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* CSS */
+    .retour {
+        margin-left: 335%;
+    }
+    .menu {
+        margin-top: -25px;
+    }
+    .ecriture {
+        margin-top: -2px;
+    }
+}
+
+
+/*
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* CSS */
+    .retour {
+        margin: auto;
+    }
+    .avatar {
+        margin-top: -175px
+    }
+}
+
+
+/*
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 767px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS */
+    .retour {
+        margin-left: 65%;
+        margin-top: 10px;
+    }
+}
+
+
+/*
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 766px) {
+    /* CSS */
+    .retour {
+        margin: auto;
+        margin-left: 30%;
+    }
+    .avatar {
+        margin-top: -100px;
+    }
+    .ecriture {
+        margin: auto;
+        margin-right: -70px;
+    }
+}
+
+
+/*
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* CSS */
+    .retour {
+        margin: auto;
+        margin-left: 74px;
+    }
+    .avatar {
+        margin-left: -15px;
+    }
+    .ecriture {
+        margin: auto;
+        margin-right: -65px;
+    }
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+    margin-top: 70px
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { TranslateService } from '@ngx-translate/core';
 import { createPopper } from "@popperjs/core";
 
 @Component({
@@ -10,6 +11,15 @@ export class IndexDropdownComponent implements OnInit {
   @ViewChild("btnDropdownRef", { static: false }) btnDropdownRef: ElementRef;
   @ViewChild("popoverDropdownRef", { static: false })
   popoverDropdownRef: ElementRef;
+
+  constructor(public translate: TranslateService) {
+    if (localStorage.getItem("langue")===null){
+      translate.setDefaultLang('fr');
+    }else{
+      translate.setDefaultLang(localStorage.getItem("langue"));
+    }
+  }
+
   ngOnInit() {}
   toggleDropdown(event) {
     event.preventDefault();
@@ -31,5 +41,13 @@ export class IndexDropdownComponent implements OnInit {
         placement: "bottom-start",
       }
     );
+  }
+
+
+
+  useLanguage(langue: string) {
+    this.dropdownPopoverShow = false;
+    this.translate.use(langue);
+    localStorage.setItem("langue", langue)
   }
 }
